@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Barmeno Extra Bold';
+  /* Corrigido: trocada vírgula por ; e ajustado formato */
+  src: url('../public/fonts/barmeno-extra-bold.woff') format('webopenfontformat');
+  /* Corrigido: trocado ; por : e : por ; */
+  font-weight: bold;
+  /* Corrigido: trocado ; por : e : por ; */
+  font-style: normal;
+} /* O erro não deve mais aparecer aqui */
+
+@font-face {
+  font-family: 'Franklin Gothic ITC Book BT';
+  /* Corrigido: trocada vírgula por ; e ajustado formato */
+  src: url('../public/fonts/franklin-gothic-itc-book-bt.woff') format('webopenfontformat');
+  /* Corrigido: trocado ; por : e : por ; */
+  font-weight: normal;
+  /* Corrigido: trocado ; por : e : por ; */
+  font-style: normal;
+} /* O erro não deve mais aparecer aqui */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

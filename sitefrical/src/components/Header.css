@@ -1,0 +1,361 @@
+/* src/components/Header/Header.css */
+
+.main-header {
+    background-color: #1D1D1D; /* Cor de fundo preta */
+    padding: 10px 0; /* Espaçamento vertical */
+    color: white;
+    position: sticky; /* Faz o header ficar fixo no topo ao rolar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Garante que fique sobre outros elementos */
+    box-sizing: border-box;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Limita a largura máxima do conteúdo */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 0 20px; /* Espaçamento lateral */
+    box-sizing: border-box;
+  }
+  
+  /* --- Logo --- */
+  .logo-link {
+    display: inline-block; /* Necessário para transform */
+    transition: transform 0.3s ease; /* Animação suave */
+    flex-shrink: 0; /* Impede que o logo encolha demais */
+  }
+  
+  .logo-link:hover {
+    transform: scale(1.05); /* Aumenta um pouco no hover */
+  }
+  
+  .logo-img {
+    height: 40px; /* Ajuste a altura conforme necessário */
+    display: block; /* Remove espaço extra abaixo da imagem */
+  }
+  
+  /* --- Navegação Desktop --- */
+  .main-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Menu horizontal */
+    gap: 30px; /* Espaço entre os itens principais */
+  }
+  
+  .nav-item {
+    position: relative; /* Para posicionar o submenu */
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-link {
+    font-family: 'Barmeno Extra Bold', sans-serif; /* Fonte Categoria */
+    color: white;
+    text-decoration: none;
+    padding: 10px 5px;
+    display: inline-block;
+    transition: color 0.2s ease;
+    white-space: nowrap; /* Evita quebra de linha no menu principal */
+  }
+  .nav-link:hover {
+    color: #cccccc;
+  }
+  
+  /* Botão/Seta para submenu */
+  .submenu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin-left: 0px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.7em; /* Tamanho da seta desktop */
+  }
+  
+  .submenu-toggle .arrow-down {
+    display: inline-block; /* Mostra seta no desktop */
+    margin-left: 3px;
+  }
+  .submenu-toggle .plus-icon {
+    display: none; /* Esconde o '+' no desktop */
+  }
+  
+  
+  /* --- Submenus Desktop --- */
+  .submenu-list {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    background-color: white;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px; /* Largura mínima */
+    z-index: 1001;
+    display: none; /* Escondido por padrão */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+  }
+  
+  .nav-item:hover > .submenu-list {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  
+  .submenu-link {
+    font-family: 'Franklin Gothic ITC Book BT', sans-serif; /* Fonte Submenu */
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 8px 15px;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .submenu-link:hover {
+    background-color: #f0f0f0;
+  }
+  
+  
+  /* --- Ícone WhatsApp --- */
+  .whatsapp-icon-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-left: 20px; /* Espaço à esquerda (Desktop) */
+    flex-shrink: 0; /* Impede que encolha */
+  }
+  .whatsapp-icon-link.mobile-only-within-nav {
+    display: none; /* Escondido no desktop */
+  }
+  .whatsapp-icon-link.desktop-only {
+    display: inline-block; /* Mostrado no desktop */
+  }
+  
+  .whatsapp-icon-link:hover {
+    transform: scale(1.1);
+  }
+  
+  .whatsapp-icon {
+    height: 30px; /* Ajuste conforme necessário */
+    display: block;
+  }
+  
+  /* --- Botão Hamburger (Mobile/Tablet) --- */
+  .hamburger-button {
+    display: none; /* Escondido no Desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0;
+    z-index: 1002; /* Sobre a nav quando fechada */
+  }
+  
+  .hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  
+  /* --- Estilos Mobile e Tablet (Exemplo: abaixo de 992px) --- */
+  @media (max-width: 992px) {
+  
+    .hamburger-button {
+      display: block; /* Mostra o botão hamburger */
+      order: 3; /* Garante que fique à direita */
+    }
+  
+    /* Esconde Nav Desktop e Whatsapp Desktop */
+    .main-nav .nav-list {
+      display: none;
+    }
+     .whatsapp-icon-link.desktop-only {
+       display: none;
+     }
+  
+  
+    /* Estiliza a Navegação Mobile (Menu Lateral) */
+    .main-nav {
+      position: fixed;
+      top: 0;
+      left: -100%; /* Começa fora da tela */
+      width: 80%;
+      max-width: 300px;
+      height: 100%;
+      background-color: white; /* Fundo branco */
+      color: black; /* Texto preto */
+      padding-top: 70px; /* Espaço para o header fixo não sobrepor o início do menu */
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+      transition: left 0.4s ease-in-out;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-y: auto; /* Scroll se necessário */
+      z-index: 1001; /* Acima do conteúdo, abaixo do header */
+    }
+  
+    .main-nav.open {
+      left: 0; /* Menu visível */
+    }
+  
+    /* Lista no menu mobile */
+    .main-nav .nav-list {
+      display: block; /* Lista vertical */
+      width: 100%;
+      padding: 20px 0;
+    }
+  
+    .nav-item {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      border-bottom: 1px solid #eee;
+    }
+     .nav-item:last-child {
+       border-bottom: none;
+     }
+  
+    .nav-link {
+      color: black; /* Cor link mobile */
+      padding: 15px 20px;
+      flex-grow: 1;
+      font-size: 1.1em;
+      font-family: 'Barmeno Extra Bold', sans-serif; /* Mantem fonte principal */
+    }
+     .nav-link:hover {
+       color: #555;
+       background-color: #f9f9f9;
+     }
+  
+    /* Botão de toggle do submenu mobile */
+    .submenu-toggle {
+      color: black; /* Cor do botão '+' */
+      padding: 15px 20px;
+      margin-left: auto;
+      display: flex; /* Mostra o botão */
+      align-items: center;
+      cursor: pointer;
+    }
+  
+     .submenu-toggle .arrow-down {
+       display: none; /* Esconde seta no mobile */
+     }
+     .submenu-toggle .plus-icon {
+       display: inline-block; /* Mostra '+' no mobile */
+       font-size: 1.6em; /* Tamanho do '+' */
+       font-weight: bold;
+       line-height: 1;
+       transition: transform 0.3s ease;
+     }
+  
+     /* Gira o '+' quando o submenu está aberto */
+     .nav-item.mobile-submenu-open .submenu-toggle .plus-icon {
+        transform: rotate(45deg);
+     }
+  
+  
+    /* Submenu no Mobile */
+    .submenu-list {
+      position: static;
+      display: block;
+      max-height: 0; /* Fechado por padrão */
+      overflow: hidden;
+      background-color: #f8f8f8;
+      width: 100%;
+      box-shadow: none;
+      border: none;
+      padding: 0;
+      opacity: 1;
+      visibility: visible;
+      transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out; /* Animação de altura e padding */
+      /* border-top: 1px solid #ddd; Adiciona linha se quiser */
+    }
+  
+     /* Mostra submenu quando .mobile-submenu-open está no .nav-item */
+     .nav-item.mobile-submenu-open > .submenu-list {
+        max-height: 1000px; /* Altura máxima grande */
+        padding: 5px 0; /* Adiciona padding vertical quando aberto */
+     }
+  
+  
+    .submenu-link {
+       padding: 10px 20px 10px 35px; /* Indentação */
+       font-size: 1em;
+       color: #333;
+       font-family: 'Franklin Gothic ITC Book BT', sans-serif; /* Mantem fonte submenu */
+    }
+     .submenu-link:hover {
+       background-color: #eee;
+     }
+  
+     /* Ícone WhatsApp dentro do menu mobile */
+     .whatsapp-icon-link.mobile-only-within-nav {
+       display: flex; /* Mostra o ícone no mobile */
+       align-items: center;
+       padding: 15px 20px;
+       margin-left: 0;
+       margin-top: 20px;
+       border-top: 1px solid #eee;
+       text-decoration: none; /* Remove sublinhado padrão do link */
+       color: #333; /* Cor do texto (se houver) */
+       transition: background-color 0.2s ease;
+     }
+      .whatsapp-icon-link.mobile-only-within-nav:hover {
+          background-color: #f0f0f0;
+      }
+     .whatsapp-icon-link.mobile-only-within-nav .whatsapp-icon {
+       height: 25px;
+       /* Adicione margem se quiser texto ao lado do ícone */
+       /* margin-right: 10px; */
+     }
+  
+    /* Animação do Hamburger para 'X' quando ativo */
+     .main-header.mobile-menu-active .hamburger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+     }
+     .main-header.mobile-menu-active .hamburger-line:nth-child(2) {
+        opacity: 0;
+     }
+     .main-header.mobile-menu-active .hamburger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+     }
+  
+  }
+  
+  /* Ajustes finos opcionais para telas realmente pequenas */
+  @media (max-width: 767px) {
+    .header-container {
+       padding: 0 15px;
+    }
+    .logo-img {
+       height: 35px;
+    }
+    .whatsapp-icon {
+        height: 28px; /* Leve ajuste */
+    }
+     .main-nav {
+        padding-top: 65px; /* Ajuste se o header diminuir */
+     }
+  }
+  
