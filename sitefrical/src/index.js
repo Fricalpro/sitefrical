@@ -1,7 +1,7 @@
 // src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom'; // <--- ADICIONE A IMPORTAÇÃO AQUI
+import { BrowserRouter } from 'react-router-dom'; // Importação DESCOMENTADA
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -9,9 +9,9 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter> {/* <--- ENVOLVA O <App /> AQUI */}
+    <BrowserRouter> {/* Wrapper DESCOMENTADO */}
       <App />
-    </BrowserRouter> {/* <--- FECHE O ENVOLVIMENTO AQUI */}
+    </BrowserRouter> {/* Wrapper DESCOMENTADO */}
   </React.StrictMode>
 );
 

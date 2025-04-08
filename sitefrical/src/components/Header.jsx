@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'; // Importa o Link para navegação inte
 import './Header.css'; // Importa os estilos
 
 // --- AJUSTE OS NOMES E EXTENSÕES DOS SEUS ARQUIVOS DE ASSETS AQUI ---
-import logoSrc from '../../assets/images/logo.png'; // Ex: logo.svg, logo.png
-import whatsappIconSrc from '../../assets/icons/whatsapp.svg'; // Ex: whatsapp.png, whatsapp.svg
+import logoSrc from '../assets/images/logo.png'; // Ex: logo.svg, logo.png
+import whatsappIconSrc from '../assets/icons/whatsapp.png'; // Ex: whatsapp.png, whatsapp.svg
 // ---------------------------------------------------------
 
 // Array de itens do menu com links internos e externos
